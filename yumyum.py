@@ -7,6 +7,8 @@ class PlayerSchema(Schema):
     number = fields.Int(required=True)
     height = fields.Int(strict=False)
     team = fields.Str()
+    comparisons = fields.List(fields.Str())
+    awards = fields.Dict(keys=fields.Str(), values=fields.List(fields.Int()))
 
     # Use this way to add custom validation
     @validates("team")
@@ -20,7 +22,9 @@ player_json = json.dumps(
         "name": "Stephen Curry",
         "number": 30,
         "height": "191",  # OK because strict=False
-        "team": "Boston Celtics",
+        "team": "Golden State Warriors",
+        "comparisons": ["Reggie Miller", "Trae Young"],
+        "awards": {"MVP": [2016, 2017], "FMVP": [2022]},
     }
 )
 
