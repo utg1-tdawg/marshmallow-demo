@@ -36,3 +36,6 @@ except ValidationError as err:
 ```python
   err_dict = UserSchema().validate(data)
 ```
+
+## Partial validation
+Say a schema has 10 fields and we want to patch only one field. We can validate that one specific field by setting `partial` to `True`
