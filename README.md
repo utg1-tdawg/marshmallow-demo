@@ -35,7 +35,6 @@ except ValidationError as err:
 2. Without deserialisation
 ```python
   err_dict = UserSchema().validate(data)
+  
+  err_dict = UserSchema().validate({"name": "John"}, partial=True) # useful for patch
 ```
-
-## Partial validation
-Say a schema has 10 fields and we want to patch only one field. We can validate that one specific field by setting `partial` to `True`
